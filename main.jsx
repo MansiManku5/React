@@ -3,52 +3,37 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
-
-function First()
-{
-  return<div className='a'><h1>Css Responsive</h1>
-  </div>
-}
-
-function Second()
-{
-  return<div className='b'><h1>Flexbox Cards</h1>
-  </div>
-}
+import Home from './Home.jsx'
+import About from './About.jsx'
+import Contact from './Contact.jsx'
+import Login from './Login.jsx'
 
 
-
-function Third(props) //That //
-{
-  return<div className='c'>
-  
-  <h1>{props.y}</h1>
-  <p>{props.x}</p>
-  <button>Readmore{props.g}</button>
-   </div>
-}
-
-function Last(){
-  return<div className='d'></div>
-}
-
+ import{  BrowserRouter, Routes, Route,NavLink} from 'react-router-dom';
+ 
 createRoot(document.getElementById('root')).render(
-
-  <StrictMode>
-<First/>
-<Second/>
-
-<div className='outer'>
-  <Third class y= "React" x= " hhdahdoieh khdkajnc  khcihih uheqihifuh  uyued j uyued juyued jkhsdj "/>
-     <Third class y= "Vue" x= "hhdahdoieh khdkajnc khcihih  uyued j  uyued j uyued juheqihifuh uyued jkhsdj"/>
-     <Third class y= "Angular" x= "hhdahdoieh  uyued j uyued jkhdkajnc khcihih uheqihifuh uyued jkhsdj"/>
-     <Third class y= "Jquery" x= "hhdahdoieh   uyued j uyued jkhdkajnc khcihih uheqihifuh uyued jkhsdj"/>
+  <StrictMode>   
     
-</div>
+    <BrowserRouter>
+<img src="images/background.png" />
 
-<StrictMode/>
-<Last/>
-<Second/>
-<Third/>
+      <nav>
+        <ul>
+          <li><NavLink to='/'>Home</NavLink></li>
+          <li><NavLink to='/a'>About</NavLink></li>
+          <li><NavLink to='/b'>Registration</NavLink></li>
+          <li><NavLink to='/c'>Login</NavLink></li>
+        </ul>
+      </nav>
+
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/a' element={<About/>}/>
+      <Route path='/b' element={<Contact/>}/>
+      <Route path='/c' element={<Login/>}/>
+
+    </Routes>
+    </BrowserRouter>
+
   </StrictMode>,
 )
